@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101522"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="NIYYA AI">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png">
+<title>NIYYA AI</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#141c30;--panel2:#1b2740;--line:#293651;--txt:#f4f6fb;--muted:#9eabc2;--gold:#e8bd69;--blue:#7898ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0,#1d2b4b 0,transparent 36%),var(--bg);color:var(--txt);font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100dvh}
+.app{max-width:760px;margin:auto;min-height:100dvh;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 14px env(safe-area-inset-bottom)}
+header{display:flex;align-items:center;gap:12px;padding:17px 4px 14px;border-bottom:1px solid var(--line)}
+.logo{width:43px;height:43px;border-radius:15px;background:linear-gradient(145deg,#f0cb7c,#a77932);display:grid;place-items:center;color:#111827;font-weight:900;font-size:20px;box-shadow:0 6px 24px #d9aa4930}
+.brand{flex:1}.brand b{display:block;letter-spacing:2px;font-size:15px}.brand small{color:var(--muted)}.topbtn{border:1px solid var(--line);background:var(--panel);color:var(--txt);border-radius:12px;padding:10px;font-size:18px}
+main{flex:1;display:flex;flex-direction:column;overflow:auto;padding:18px 0 12px;gap:14px}
+.welcome{text-align:center;padding:25px 12px 12px}.orb{margin:0 auto 15px;width:78px;height:78px;border-radius:28px;background:linear-gradient(145deg,#eac879,#8c642b);display:grid;place-items:center;color:#101522;font-size:31px;font-weight:900;box-shadow:0 0 50px #d6aa4a30}.welcome h1{font-size:24px;margin:0 0 8px}.welcome p{color:var(--muted);margin:0;line-height:1.5}
+.quick{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.chip{background:var(--panel);border:1px solid var(--line);color:#dce4f3;padding:9px 12px;border-radius:20px;font-size:13px}
+.messages{display:flex;flex-direction:column;gap:12px}.msg{max-width:88%;padding:13px 15px;border-radius:18px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}.user{align-self:flex-end;background:#31466f;border-bottom-right-radius:5px}.bot{align-self:flex-start;background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:5px}.msg img{max-width:100%;border-radius:12px;margin-top:8px}.time{font-size:10px;color:var(--muted);margin-top:5px}
+.composer{position:sticky;bottom:0;padding:10px 0 calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 18%)}
+.inputrow{display:flex;gap:8px;align-items:flex-end;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:8px}
+textarea{flex:1;resize:none;max-height:130px;min-height:42px;border:0;outline:0;background:transparent;color:var(--txt);font:16px inherit;padding:10px 5px}
+.send{width:43px;height:43px;border:0;border-radius:14px;background:var(--gold);color:#151515;font-size:20px;font-weight:800}
+.hint{text-align:center;color:var(--muted);font-size:11px;padding:7px 0}
+.overlay{position:fixed;inset:0;background:#050914d9;display:none;align-items:flex-end;justify-content:center;padding:12px;z-index:5}.sheet{width:100%;max-width:650px;max-height:88dvh;overflow:auto;background:#151e32;border:1px solid var(--line);border-radius:24px;padding:20px}.sheet h2{margin:0 0 14px}.field{display:block;margin:13px 0;color:var(--muted);font-size:13px}.field input,.field textarea{display:block;width:100%;margin-top:7px;padding:12px;border-radius:12px;border:1px solid var(--line);background:#0d1424;color:var(--txt);font:15px inherit}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}.action{padding:11px 15px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);color:var(--txt)}.primary{background:var(--gold);color:#171717;border:0;font-weight:700}.status{font-size:12px;color:var(--muted);margin-top:10px}.typing{color:var(--muted);font-style:italic}
+</style>
+</head>
+<body><div class="app">
+<header><div class="logo">N</div><div class="brand"><b>NIYYA AI</b><small>Ton assistant personnel</small></div><button class="topbtn" id="settings" aria-label="Paramètres">⚙</button></header>
+<main id="main"><section class="welcome" id="welcome"><div class="orb">N</div><h1>Bonjour 👋</h1><p>Je suis NIYYA AI.<br>On peut discuter, retenir des informations et créer des images.</p></section><div class="quick" id="quick"><button class="chip" data-q="Présente-toi">Qui es-tu ?</button><button class="chip" data-q="Aide">Commandes</button><button class="chip" data-q="Mémoire">Ma mémoire</button><button class="chip" data-q="Dessine un paysage futuriste">Créer une image</button></div><div class="messages" id="messages"></div></main>
+<div class="composer"><div class="inputrow"><textarea id="prompt" rows="1" placeholder="Écris à NIYYA AI…"></textarea><button class="send" id="send">➤</button></div><div class="hint" id="hint">Tes souvenirs restent sur cet appareil.</div></div>
+</div>
+<div class="overlay" id="overlay"><div class="sheet"><h2>Réglages de NIYYA AI</h2>
+<p style="color:var(--muted);font-size:13px;line-height:1.5">Le code V4 utilisait des services externes. Leur disponibilité et leur compatibilité avec Safari ne sont pas garanties. Si le service gratuit ne répond pas, tu peux configurer un fournisseur compatible OpenAI.</p>
+<label class="field">Adresse API<input id="apiUrl" placeholder="https://…/v1/chat/completions"></label>
+<label class="field">Modèle<input id="model" placeholder="Nom du modèle"></label>
+<label class="field">Clé API (facultative selon le service)<input id="apiKey" type="password" placeholder="Clé API"></label>
+<label class="field">Ton prénom (facultatif)<input id="nickname" placeholder="Comment t’appeler ?"></label>
+<div class="actions"><button class="action primary" id="save">Enregistrer</button><button class="action" id="export">Exporter ma mémoire</button><button class="action" id="clear">Effacer la conversation</button><button class="action" id="close">Fermer</button></div><div class="status" id="settingsStatus"></div></div></div>
+<script src="app.js"></script></body></html>

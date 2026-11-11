@@ -1,0 +1,27 @@
+# NIYYA AI — version iOS (PWA)
+
+Cette version transforme l'interface console du projet Python V4 en application web installable sur iPhone.
+
+## Installation sur iPhone
+1. Héberge le contenu de ce dossier sur un site HTTPS (par exemple GitHub Pages).
+2. Ouvre l'adresse HTTPS dans Safari sur l'iPhone.
+3. Appuie sur Partager → Sur l'écran d'accueil → Ajouter.
+4. Lance NIYYA AI depuis la nouvelle icône.
+
+Important : ouvrir index.html comme simple fichier ne suffit pas pour l'installation PWA. Il faut une adresse HTTPS pour le service worker et l'installation.
+
+## Fonctions reprises/adaptées
+- Interface de chat adaptée au téléphone.
+- Mémoire locale : prénom et faits mémorisés, sauvegardés dans le navigateur.
+- Commandes : aide, prénom, retiens, oublie, mémoire, nouvelle conversation, heure, date, calculs, dessin/image, galerie.
+- Génération d'images par URL Pollinations.
+- Historique de conversation local.
+- Réglages pour fournisseur compatible OpenAI (URL, modèle, clé).
+- Export JSON de la mémoire.
+
+## Limites à connaître
+- Cette PWA est une adaptation de l'interface et des fonctions principales, pas une exécution directe du fichier Python.
+- La mémoire reste dans le stockage Safari de cet appareil. Exportez-la régulièrement depuis les réglages.
+- L'appel direct à un fournisseur IA depuis Safari dépend de sa disponibilité, de ses règles CORS et de sa politique d'accès. Le fournisseur Pollinations du V4 est essayé sans clé, mais cela n'est pas garanti. Une API compatible OpenAI avec accès navigateur/CORS peut être configurée.
+- Ne saisissez pas une clé API personnelle sur un appareil partagé.
+- Aucun serveur ni compte n'est inclus dans ce paquet.
